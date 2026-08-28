@@ -1,9 +1,12 @@
 name: Daily Sunset Forecast Scraper
 
 on:
-  schedule:
-    # 每小时运行一次 (UTC时间每小时的第 5 分钟)
-    - cron: '5 * * * *'
+  # schedule 已于 2026-08-28 关闭：私有仓库每小时 schedule 烧完了 2000 分钟/月配额，
+  # 每次被 GitHub 账单拦截后发失败邮件。博客 /sunset 的实际数据源是公开仓库
+  # krisaruz/zhuhai-sunset-monitor，本仓库未被任何下游引用，停掉零影响。
+  # 需要恢复时把下面的 schedule 取消注释即可。
+  # schedule:
+  #   - cron: '5 * * * *'
   workflow_dispatch: # Allows manual trigger
 
 jobs:
